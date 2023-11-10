@@ -1,7 +1,6 @@
 import React from "react";
 import Webcam from "react-webcam";
-import cecile from './Cecile.mp4'
-import ReactPlayer from 'react-player'
+import cecile from 'https://denisemw.github.io/Cecile.mp4'
 
 
 export default function WebcamVideo() {
@@ -87,16 +86,10 @@ export default function WebcamVideo() {
         ref={webcamRef}
         videoConstraints={videoConstraints}
       />
-      <video id = "myvideo" width="0" height="0" controls >
+      <video id = "myvideo" preload="auto" width="0" height="0" controls >
       <source src={cecile} type="video/mp4"/>
         </video>      
-        {/* <ReactPlayer
-        url= {cecile}
-        width='0'
-        height='0'
-        controls = {true}
-        ref={cecileRef}
-        /> */}
+
       {capturing ? (
         <button onClick={handleStopCaptureClick}>Stop Capture</button>
       ) : (
