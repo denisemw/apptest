@@ -30,17 +30,17 @@ export default function WebcamVideo() {
       handleDataAvailable
     );
     mediaRecorderRef.current.start();
-    document.querySelector("#myvideo").play();
-    var elem = document.getElementById("myvideo"); 
-    elem.setAttribute('width', '75%')
-    elem.setAttribute('height', 'auto')
-	if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
-  }
+//     document.querySelector("#myvideo").play();
+//     var elem = document.getElementById("myvideo"); 
+//     elem.setAttribute('width', '75%')
+//     elem.setAttribute('height', 'auto')
+// 	if (elem.requestFullscreen) {
+//         elem.requestFullscreen();
+//   } else if (elem.webkitRequestFullscreen) { /* Safari */
+//         elem.webkitRequestFullscreen();
+//   } else if (elem.msRequestFullscreen) { /* IE11 */
+//         elem.msRequestFullscreen();
+//   }
         
   }, [webcamRef, setCapturing, mediaRecorderRef, handleDataAvailable]);
 
@@ -86,9 +86,9 @@ export default function WebcamVideo() {
         ref={webcamRef}
         videoConstraints={videoConstraints}
       />
-      <video id = "myvideo" preload="auto" width="0" height="0" controls >
+      {/* <video id = "myvideo" preload="auto" width="0" height="0" controls >
       <source src={cecile} type="video/mp4"/>
-        </video>      
+        </video>       */}
 
       {capturing ? (
         <button onClick={handleStopCaptureClick}>Stop Capture</button>
