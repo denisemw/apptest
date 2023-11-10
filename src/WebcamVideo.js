@@ -1,6 +1,6 @@
 import React from "react";
 import Webcam from "react-webcam";
-import cecile from 'https://denisemw.github.io/Cecile.mp4'
+import cecile from './Cecile.mp4'
 
 
 export default function WebcamVideo() {
