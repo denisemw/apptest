@@ -1,38 +1,70 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-rows: auto auto auto;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+
 }
 
-.App-link {
-  color: #61dafb;
+
+.Container {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 75%;
+  width: 75%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: -10%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+  display: grid;
+  grid-template-rows: auto auto auto;  /*Add this*/
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 75%;
+  width: 50%;
+  height: auto;
+  /* width: auto; */
+  margin-bottom: -5%;
+  /* object-fit: cover;  */
+}
+
+.vid {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 75%;
+  width: 75%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: -10%;
+}
+
+button {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  background-color: crimson;
+  color: #fff;
+  margin-top: 10px;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
