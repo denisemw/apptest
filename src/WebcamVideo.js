@@ -46,7 +46,7 @@ export default function WebcamVideo() {
 
   
   const handleStopCaptureClick = React.useCallback(() => {
-    document.querySelector("#myvideo").pause();
+    // document.querySelector("#myvideo").pause();
     mediaRecorderRef.current.stop();
     
     setCapturing(false);
