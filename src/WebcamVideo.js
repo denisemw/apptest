@@ -1,14 +1,17 @@
 import React from "react";
 import Webcam from "react-webcam";
-// import cecile from './Cecile.mp4'
+import cecile from './Cecile.mp4'
 
 
 export default function WebcamVideo() {
-  const webcamRef = React.useRef(null);
-  const cecileRef = React.useRef(null);
+
+    const webcamRef = React.useRef(null);
+  const vidRef = React.useRef(null);
   const mediaRecorderRef = React.useRef(null);
   const [capturing, setCapturing] = React.useState(false);
   const [recordedChunks, setRecordedChunks] = React.useState([]);
+  
+  
 
   const handleDataAvailable = React.useCallback(
     ({ data }) => {
@@ -30,20 +33,70 @@ export default function WebcamVideo() {
       handleDataAvailable
     );
     mediaRecorderRef.current.start();
-//     document.querySelector("#myvideo").play();
-//     var elem = document.getElementById("myvideo"); 
+    // const vidRef = useRef();
+
+    vidRef.current.play();
+    // document.querySelector("#vidRef").play();
+    // var elem = document.getElementById("myvideo"); 
 //     elem.setAttribute('width', '75%')
 //     elem.setAttribute('height', 'auto')
-// 	if (elem.requestFullscreen) {
-//         elem.requestFullscreen();
-//   } else if (elem.webkitRequestFullscreen) { /* Safari */
-//         elem.webkitRequestFullscreen();
-//   } else if (elem.msRequestFullscreen) { /* IE11 */
-//         elem.msRequestFullscreen();
-//   }
-        
-  }, [webcamRef, setCapturing, mediaRecorderRef, handleDataAvailable]);
+	// if (vidRef.current.requestFullscreen) {
+  //   vidRef.current.requestFullscreen();
+  // } else if (vidRef.current.webkitRequestFullscreen) { /* Safari */
+  // vidRef.current.webkitRequestFullscreen();
+  // } else if (vidRef.current.msRequestFullscreen) { /* IE11 */
+  // vidRef.current.msRequestFullscreen();
+  // }
 
+  return (
+    <>
+        <video  ref = {vidRef}  width="500" height="300" controls >
+        <source src={cecile} type="video/mp4"/>
+        </video> 
+        </>
+  );
+} , [webcamRef, setCapturing, mediaRecorderRef, handleDataAvailable]);
+
+
+        
+
+const handlePlayVideo = () => {
+  
+
+  setCapturing(true);
+  mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
+    mimeType: "video/webm",
+  });
+  mediaRecorderRef.current.addEventListener(
+    "dataavailable",
+    handleDataAvailable
+  );
+  mediaRecorderRef.current.start();
+  // const vidRef = useRef();
+
+  // vidRef.current.play();
+
+  //    var elem = document.getElementById("vidRef"); 
+  //   elem.setAttribute('width', '75%')
+  //   elem.setAttribute('height', 'auto')
+  //   elem.play();
+	// if (elem.current.requestFullscreen) {
+  //   elem.current.requestFullscreen();
+  // } else if (elem.current.webkitRequestFullscreen) { /* Safari */
+  // elem.current.webkitRequestFullscreen();
+  // } else if (elem.current.msRequestFullscreen) { /* IE11 */
+  // elem.current.msRequestFullscreen();
+  // }
+
+  
+  // return (
+  //   <>
+  //       <video  ref = {vidRef}  width="500" height="300" controls >
+  //       <source src={cecile} type="video/mp4"/>
+  //       </video> 
+  //       </>
+  // );
+}
   
   const handleStopCaptureClick = React.useCallback(() => {
     // document.querySelector("#myvideo").pause();
@@ -74,6 +127,8 @@ export default function WebcamVideo() {
     height: 720,
     facingMode: "user",
   };
+  
+  var screenheight = window.screen.height;
 
   return (
     <div className="Container">
@@ -89,16 +144,36 @@ export default function WebcamVideo() {
       {/* <video id = "myvideo" preload="auto" width="0" height="0" controls >
       <source src={cecile} type="video/mp4"/>
         </video>       */}
-
+    
       {capturing ? (
+        <>
+        {/* const vidRef = useRef(null); */}
+
+        
+        {/* {vidRef.play()}; */}
+        {/* {playvideo()}  */}
         <button onClick={handleStopCaptureClick}>Stop Capture</button>
+    
+        </>
       ) : (
-        <button onClick={handleStartCaptureClick}>Start Capture</button>
+        <button onClick={handlePlayVideo}>Start recording</button>
       )}
       {recordedChunks.length > 0 && (
         <button onClick={handleDownload}>Download</button>
       )}
+
+<video
+            id="full-screenVideo"
+            src={cecile}
+            ref={vidRef}
+            height={screenheight}
+            width="auto"
+            // onLoadStart={this.onLoadStart}
+            // onTimeUpdate={this.onProgress}
+            style={{ width: "100%", height: "100%" }}
+          />
             
     </div>
   );
+  
 }

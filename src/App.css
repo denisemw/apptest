@@ -5,9 +5,24 @@
   align-items: center;
   width: 100%;
   background-color: #fff;
+  position: relative;
 
 }
 
+.buttons3 {
+  background-color: #82b7ca; /* Green */
+   visibility: visible;
+   border: none;
+   color: white;
+   padding: 10px 20px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+ border-radius: 8px;
+ }
 
 .Container {
   display: grid;
@@ -22,6 +37,9 @@
   margin-right: auto;
   margin-top: 5%;
   margin-bottom: -10%;
+  position: relative;               /* 2 */
+   left: 50%;                         /* 3 */
+   transform: translate(-50%);  /* 4 */
 }
 
 img {
